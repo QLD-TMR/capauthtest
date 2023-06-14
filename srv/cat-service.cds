@@ -23,22 +23,20 @@ service CatalogService {
         'READ',
         'WRITE'
       ],
-      to   : 'treatmentcost403updaterole',
+      to   : 'treatmentcost403update',
       where: 'district = $user.district'
     },
     {
-      grant: [
-        'READ',
-        'WRITE'
-      ],
-      to   : 'treatmentcostQLDupdate'
+      grant: ['*'],
+      to   : 'treatmentcostQLDupdate',
+      where: '$user.district is null'
     }
+
   ]
   //@odata.draft.enabled
   entity Authors @readonly    as projection on my.Authors;
 
   entity Orders @readonly     as projection on my.Orders;
-
   entity UserScopes @readonly as projection on my.UserScopes;
 
 }

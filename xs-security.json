@@ -15,14 +15,14 @@
     {
       "name": "$XSAPPNAME.treatmentcostQLDupdate",
       "description": "treatment costs qld update"
-    }    
+    }
   ],
   "attributes": [
     {
       "name": "district",
       "description": "district",
       "valueType": "s",
-      "valueRequired": false
+      "valueRequired": true
     }
   ],
   "role-templates": [
@@ -67,7 +67,14 @@
       "scope-references": [
         "$XSAPPNAME.treatmentcostQLDupdate"
       ],
-      "attribute-references": []
+      "attribute-references": [
+        {
+          "name": "district",
+          "default-values": [
+            "QLD"
+          ]
+        }
+      ]
     },
     {
       "name": "userattributes",
