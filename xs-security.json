@@ -22,7 +22,7 @@
       "name": "district",
       "description": "district",
       "valueType": "s",
-      "valueRequired": true
+      "valueRequired": false
     }
   ],
   "role-templates": [
