@@ -6,9 +6,7 @@ service CatalogService {
     'treatmentcost401update',
     'treatmentcost402update'
   ]
-  @(restrict: [
-     { grant: ['READ'],
-       where: 'exists members[userId = $user and role = `treatmentcost403updaterole`]' } ])
+
   entity Books                as projection on my.Books;
 
   @restrict: [
