@@ -1,0 +1,93 @@
+{
+  "scopes": [
+    {
+      "name": "$XSAPPNAME.treatmentcost401update",
+      "description": "treatment costs 401 update"
+    },
+    {
+      "name": "$XSAPPNAME.treatmentcost402update",
+      "description": "treatment costs 402 update"
+    },
+    {
+      "name": "$XSAPPNAME.treatmentcost403update",
+      "description": "treatment costs 403 update"
+    },
+    {
+      "name": "$XSAPPNAME.treatmentcostQLDupdate",
+      "description": "treatment costs qld update"
+    }    
+  ],
+  "attributes": [
+    {
+      "name": "district",
+      "description": "district",
+      "valueType": "s",
+      "valueRequired": true
+    }
+  ],
+  "role-templates": [
+    {
+      "name": "treatmentcost401update",
+      "description": "treatment costs 401 update",
+      "scope-references": [
+        "$XSAPPNAME.treatmentcost401update"
+      ],
+      "attribute-references": []
+    },
+    {
+      "name": "treatmentcost402update",
+      "description": "treatment costs 402 update",
+      "scope-references": [
+        "$XSAPPNAME.treatmentcost402update"
+      ],
+      "attribute-references": [
+        {
+          "name": "district",
+          "default-values": [
+            "402"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "treatmentcost403update",
+      "description": "treatment costs 403 update",
+      "scope-references": [
+        "$XSAPPNAME.treatmentcost403update"
+      ],
+      "attribute-references": [
+        {
+          "name": "district"
+        }
+      ]
+    },
+    {
+      "name": "treatmentcostQLDupdate",
+      "description": "treatment costs qld update",
+      "scope-references": [
+        "$XSAPPNAME.treatmentcostQLDupdate"
+      ],
+      "attribute-references": []
+    },
+    {
+      "name": "userattributes",
+      "description": "generated",
+      "default-role-name": "Attributes of a User",
+      "scope-references": [],
+      "attribute-references": [
+        "district"
+      ]
+    }
+  ],
+  "xsappname": "my-bookshop",
+  "tenant-mode": "dedicated",
+  "oauth2-configuration": {
+    "token-validity": 86400,
+    "refresh-token-validity": 2592000,
+    "redirect-uris": [
+      "https://susasap-solutions-pty-ltd-dev-331hjhgp-dev-my-bookshop.cfapps.ap10.hana.ondemand.com/login/callback",
+      "http://localhost:5000/login/callback",
+      "https://*.ap10cf.applicationstudio.cloud.sap/**"
+    ]
+  }
+}
