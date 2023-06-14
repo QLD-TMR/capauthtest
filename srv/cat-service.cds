@@ -23,7 +23,7 @@ service CatalogService {
         'READ',
         'WRITE'
       ],
-      to   : 'treatmentcost403update',
+      to   : 'treatmentcost403updaterole',
       where: 'district = $user.district'
     },
     {
