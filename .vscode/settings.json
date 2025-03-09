@@ -6,5 +6,6 @@
             "name": "test",
             "database": "${workspaceFolder:my-bookshop}/db.sqlite"
         }
-    ]
+    ],
+    "SAP HANA Database Artifacts.lastSelectedTargetPath": "/home/user/projects/capauthtest/db/src"
 }

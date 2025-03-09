@@ -6,42 +6,45 @@
   "license": "UNLICENSED",
   "private": true,
   "engines": {
-    "node": "^16"
+    "node": "^18"
   },
   "dependencies": {
-    "@sap/cds": "^6",
+    "@cap-js/hana": "^1",
+    "@cap-js/sqlite": "^1",    
+    "@sap/cds": "^8",
     "express": "^4",
     "hdb": "^0.19.0",
     "@sap/xssec": "^3",
     "passport": "^0"
   },
   "devDependencies": {
-    "sqlite3": "^5.0.4"
+    "@cap-js/cds-types": "^0.7.0",
+    "@sap/cds-dk": "^8"
   },
-  "scripts": {
-    "start": "cds run"
+  "scripts": {    
+    "start": "cds-serve"
   },
   "cds": {
     "requires": {
       "db": {
-        "kind": "sqlite",
+        "kind": "sql",
         "credentials": {
           "database": "db.sqlite"
         }
       },
       "[production]": {
-        "auth": {
-          "kind": "xsuaa"
-        },
-        "db": {
-          "kind": "hana-cloud"
-        },
-        "approuter": {
-          "kind": "cloudfoundry"
-        }
+        "auth": "xsuaa",
+        "kind": "hana",
+        "impl": "@sap/cds-hana",
+        "deploy-format": "hdbtable",
+        "syntax": "hdi"
       },
-      "auth": {
-        "kind": "xsuaa"
+      "[hybrid]": {
+        "kind": "hana",
+        "impl": "@sap/cds-hana",
+        "deploy-format": "hdbtable",
+        "model": "db/hana",
+        "syntax": "hdi"
       }
     },
     "features": {
